@@ -1,0 +1,32 @@
+- hosts: all
+  become: true
+  tasks:
+    - name: update repo
+      command: yum update -y
+      become: true
+      become_method: sudo
+      become_user: root
+    - name: install httpd
+      command: yum install httpd -y
+      become: true
+      become_method: sudo
+      become_user: root
+    - name: start httpd
+      command: systemctl start httpd
+      become: yes
+      become_method: sudo
+      become_user: root
+    - name: enable httpd
+      command: systemctl enable httpd
+      become: yes
+      become_method: sudo
+      become_user: root
+    - name: install git
+      command: yum install git -y
+      become: yes
+      become_method: sudo
+      become_user: root
+    - name: copy the code from github
+      shell: |
+        cd /var/www/html
+        git clone https://github.com/cankush625/Web.git
