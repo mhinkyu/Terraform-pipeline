@@ -21,9 +21,9 @@ sudo apt update
         }
         stage("Ansible install") {
             steps {
-                sh '''sudo apt-add-repository ppa:ansible/ansible -y
-sudo apt update -y 
-sudo apt install ansible -y'''
+                sh '''sudo apt-get-add-repository ppa:ansible/ansible -y
+sudo apt-get update -y
+sudo apt-get install ansible -y'''
             }
         }
         stage("Terrafrom init") {
