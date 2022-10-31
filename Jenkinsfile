@@ -15,15 +15,15 @@ sudo wget https://releases.hashicorp.com/terraform/1.3.3/terraform_1.3.3_linux_a
 sudo apt-get install unzip
 sudo unzip terraform_1.3.3_linux_amd64.zip
 sudo mv terraform /usr/local/bin/
-sudo apt update
+sudo apt-get update
 '''
             }
         }
         stage("Ansible install") {
             steps {
                 sh '''sudo apt-add-repository ppa:ansible/ansible
-sudo apt update
-sudo apt install ansible'''
+sudo apt-get update
+sudo apt-get install ansible'''
             }
         }
         stage("Terrafrom init") {
