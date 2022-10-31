@@ -11,14 +11,12 @@ pipeline {
             steps {
                 sh '''sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
 sudo apt-get install wget
-sudo wget -O- https://apt.releases.hashicorp.com/gpg | \\
-sudo gpg --dearmor | \\
-sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
-echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] \\
-https://apt.releases.hashicorp.com $(lsb_release -cs) main" | \\
-sudo tee /etc/apt/sources.list.d/hashicorp.list
+sudo wget https://releases.hashicorp.com/terraform/1.3.3/terraform_1.3.3_linux_amd64.zip
+sudo apt-get install unzip
+sudo unzip terraform_1.3.3_linux_amd64.zip
+sudo mv terraform /usr/local/bin/
 sudo apt update
-sudo apt-get install terraform'''
+'''
             }
         }
         stage("Ansible install") {
