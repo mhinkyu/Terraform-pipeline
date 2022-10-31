@@ -9,29 +9,29 @@ pipeline {
         }
         stage("Download Terraform") {
             steps {
-                sh '''sudo apt-get update && apt-get install -y gnupg software-properties-common
+                sh '''sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
 sudo apt-get install wget
-wget -O- https://apt.releases.hashicorp.com/gpg | \\
-gpg --dearmor | \\
-tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
+sudo wget -O- https://apt.releases.hashicorp.com/gpg | \\
+sudo gpg --dearmor | \\
+sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
 echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] \\
 https://apt.releases.hashicorp.com $(lsb_release -cs) main" | \\
-tee /etc/apt/sources.list.d/hashicorp.list
-apt update
-apt-get install terraform'''
+sudo tee /etc/apt/sources.list.d/hashicorp.list
+sudo apt update
+sudo apt-get install terraform'''
             }
         }
         stage("Ansible install") {
             steps {
-                sh '''apt-add-repository ppa:ansible/ansible
-apt update
-apt install ansible'''
+                sh '''sudo apt-add-repository ppa:ansible/ansible
+sudo apt update
+sudo apt install ansible'''
             }
         }
         stage("Terrafrom init") {
             steps {
-                sh '''terraform init
-terraform apply -auto-approve'''
+                sh '''sudo terraform init
+sudo terraform apply -auto-approve'''
             }
         }
         
