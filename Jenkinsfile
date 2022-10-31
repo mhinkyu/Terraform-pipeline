@@ -19,13 +19,7 @@ sudo apt-get update
 '''
             }
         }
-        stage("Ansible install") {
-            steps {
-                sh '''sudo apt-add-repository ppa:ansible/ansible
-sudo apt-get update
-sudo apt-get install ansible'''
-            }
-        }
+
         stage("Terrafrom init") {
             steps {
                 sh '''sudo terraform init
