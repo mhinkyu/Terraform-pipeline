@@ -2,6 +2,11 @@ pipeline {
     agent any
 
     stages {
+         stage('Build') {
+            steps {
+                echo 'Building...'
+            }
+        }
         stage("checkout") {
             steps {
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'jenkins-ssh', url: 'git@github.com:mhinkyu/Terraform-pipeline.git']]])
