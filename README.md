@@ -6,8 +6,6 @@ Co-Author: Muhammad Qadura
 </a>  
 </div>
 
- 
-
 <div align="center">
 <img src="https://img.shields.io/badge/created--date-29th%20October-blue" align="center" />
 <img src="https://img.shields.io/badge/AWS-re%2FStart-orange" alt="AWS - re/Start" align="center" />
@@ -21,7 +19,4 @@ Launching small webapp on EC2.
 <img src="images/Pipeline.jpeg" align="center"></a>
 
 ## The steps
-1. 
-2. 
-3. 
 
